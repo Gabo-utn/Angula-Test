@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 interface Usuario {
   nombre:string;
   correo:string;
@@ -11,12 +12,13 @@ interface Usuario {
   styleUrls: ['./agregar.component.scss']
 })
 export class AgregarComponent implements OnInit {
-  formularioCreado: FormGroup; //no esta inizializado por lo tanto utilizo el signo ! para decir que es indefinido
+  formularioCreado!: FormGroup; //no esta inizializado por lo tanto utilizo el signo ! para decir que es indefinido
   usuarios:Array<Usuario> = new Array<Usuario>();
   esNuevo: boolean = true ;
   posicionEditar: number = -1;
 
   constructor(private formBuilder: FormBuilder) {
+
 
    }
 
@@ -65,3 +67,7 @@ export class AgregarComponent implements OnInit {
 
 
 }
+function Any(Any: any): FormGroup {
+  throw new Error('Function not implemented.');
+}
+

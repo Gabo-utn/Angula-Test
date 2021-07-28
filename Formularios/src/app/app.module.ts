@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { HomeComponent } from './home/home.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarComponent,
     HomeComponent,
-    EncabezadoComponent
+    EncabezadoComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

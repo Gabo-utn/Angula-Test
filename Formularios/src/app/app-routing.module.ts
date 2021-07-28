@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'', component:HomeComponent // es para que me cargue primero el componente
+  },
+  {
+    path: 'perfil', component:PerfilComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

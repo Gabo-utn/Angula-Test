@@ -42,20 +42,28 @@
     </div>
 
     <Button *ngIf="esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-primary" (click)="agregar()"> Add </Button>
+
     <Button *ngIf="!esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-danger" (click)="editar()"> Edit </Button>
 
   </form>
 
 </div>
+&nbsp;
+
 <div class="container borde">
-  <div *ngFor="let usuario of usuarios,let posicion = index">
-    <h4>{{ usuario.nombre}} Tiene la posicion {{posicion}} </h4>
+  &nbsp;
 
-    <p>{{ usuario.correo }}</p>
-     <p>{{ usuario.password }}</p>
-   <button (click)="editarUsuario(posicion)">Editar</button>
-   <button (click)="eliminarUsuario(posicion)">Eliminar</button
+    <div *ngFor="let usuario of usuarios,let posicion = index" >
+      <h4>{{ usuario.nombre}} Tiene la posicion {{posicion}} </h4>
 
-  </div>
+      <p>{{ usuario.correo }}</p>
+      <p>{{ usuario.password }}</p>
+      &nbsp;
+      &nbsp;
+      <button (click)="editarUsuario(posicion)">Editar</button>
+      &nbsp;
+      <button (click)="eliminarUsuario(posicion)">Eliminar </button>
+
+    </div>
 |</div>
 
