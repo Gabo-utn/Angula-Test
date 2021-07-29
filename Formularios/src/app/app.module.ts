@@ -1,3 +1,4 @@
+import { ArticulosService } from './services/articulos.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,22 +10,26 @@ import { UsuarioService } from './services/usuario.service';
 import { HomeComponent } from './home/home.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { PerfilComponent } from './perfil/perfil.component';
-
+import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.component';
+import{HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     AgregarComponent,
     HomeComponent,
     EncabezadoComponent,
-    PerfilComponent
+    PerfilComponent,
+    ArticuloDetalleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    ArticulosService
 
   ],
   bootstrap: [AppComponent]

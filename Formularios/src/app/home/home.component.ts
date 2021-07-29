@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Articulo } from '../models/articulo';
+import { UsuarioService } from '../services/usuario.service';
+import { ArticulosService } from '../services/articulos.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private router: Router) {
+  articulos: Array<Articulo> = new Array<Articulo>();
+  constructor(private router: Router,
+              private UsuarioInyectado:UsuarioService,
+              private ArticuloInyectado:ArticulosService,
+              private Ruta:Router
+  ) {
 
   }
 
   ngOnInit(): void {
+    this.ArticuloInyectado.leerNoticias().subscribe((articulosDesdeApi)=>{
+      this.articulos = articulosDesdeApi;
+
+    });
+
+
+
+
+
   }
+  IrAlDetalle(articulo:Articulo){
+    this.ArticuloInyectado.articulo = articulo;
+    this.Ruta.navigateByUrl('articulo-detalle');
+
+  }
+
   AgregarPersona(){
     const url = './agregar/';
     this.router.navigateByUrl(url);

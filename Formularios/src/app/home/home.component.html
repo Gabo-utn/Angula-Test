@@ -1,13 +1,11 @@
 <div class="container">
-  <div>
-    <h4>Encabezado</h4>
-    <h3>Descripcion</h3>
+  <div class="articulos" *ngFor="let articulo of articulos" >
+
+    <h4 (click)="irAlDetalle(articulo)">{{articulo.title}}   </h4>
+    <p>{{articulo.body}}</p>
+
   </div>
-  <div>
-    <h4>Encabezado</h4>
-    <h3>Descripcion</h3>
-  </div>
-  <div>
-    <h4>Encabezado</h4>
-    <h3>Descripcion</h3>
-  </div>
+
+</div>
+
+
