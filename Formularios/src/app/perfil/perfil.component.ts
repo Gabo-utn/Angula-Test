@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(public UsuarioInyectado: UsuarioService) { }
 
   ngOnInit(): void {
+  }
+  cambiarNombre(){
+    this.UsuarioInyectado.usuario.nombres= 'carlos'
   }
 
 }
