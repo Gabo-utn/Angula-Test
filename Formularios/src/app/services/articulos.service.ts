@@ -22,6 +22,18 @@ export class ArticulosService {
   {
     return this.http.get<User>('https://jsonplaceholder.typicode.com/users' + userId)
   }
+  guardarArticulo(articulo:Articulo): Observable<Articulo>
+  {
+    return this.http.post<Articulo>('https://jsonplaceholder.typicode.com' + 'https://jsonplaceholder.typicode.com/posts',articulo)
+  }
+  leerTodosLosUsuarios(): Observable<User[]>
+  {
+    return this.http.get<User[]>('https://jsonplaceholder.typicode.com' + 'https://jsonplaceholder.typicode.com/users')
+  }
+  borrarArticulo(id:number)
+  {
+    return this.http.delete<any>('https://jsonplaceholder.typicode.com' + 'https://jsonplaceholder.typicode.com/posts/1' + id)
+  }
 
 
 }

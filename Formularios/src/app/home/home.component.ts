@@ -22,8 +22,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.ArticuloInyectado.leerNoticias().subscribe((articulosDesdeApi)=>{
       this.articulos = articulosDesdeApi;
-
     });
+
+    let articuloEnviar: Articulo = new Articulo();
+    articuloEnviar.body = 'cuerpo del articulo ';
+    articuloEnviar.title = 'Este es de prueba';
+    articuloEnviar.usuarioId = 4;
+    this.ArticuloInyectado.guardarArticulo(articuloEnviar).subscribe((articuloCreado)=>{
+      this.articulos.push(articuloCreado)
+    })
 
 
 
@@ -39,6 +46,13 @@ export class HomeComponent implements OnInit {
   AgregarPersona(){
     const url = './agregar/';
     this.router.navigateByUrl(url);
+  }
+
+  borrar(id:number){
+    this.ArticuloInyectado.borrarArticulo(id).subscribe((datos)=>{
+      console.log(datos)
+      console.log('eliminado correctamente')
+    })
   }
 
 }
